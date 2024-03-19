@@ -36,7 +36,7 @@ if MODEL_PATH is None:
     # MODEL_PATH = Path(_) / MODEL_FILE  # need to set to home dir, or else Permission denied in streamlit.io
     MODEL_PATH = CACHE_DIR / MODEL_FILE  # need to set to home dir, or else Permission denied in streamlit.io
 else:
-    MODEL_PATH = PATH(MODEL_PATH)
+    MODEL_PATH = Path(MODEL_PATH)
 
 
 # check MODEL_PATH exist and md5 is correct
