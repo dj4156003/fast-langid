@@ -59,7 +59,9 @@ if not MODEL_PATH.exists():
         raise SystemExit(1) from e
 
 MD5 = hashlib.md5(MODEL_PATH.read_bytes()).hexdigest()
-EXPECTED = "340156704bb8c8e50c4abf35a7ec2569"
+EXPECTED = os.environ.get("model_md5")
+if EXPECTED is None:
+    EXPECTED = "340156704bb8c8e50c4abf35a7ec2569"
 assert MD5 == EXPECTED, f"md5 mismtach (md5 != expected): {MD5} != {EXPECTED}"
 
 try:
